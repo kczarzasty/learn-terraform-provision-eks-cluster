@@ -1,3 +1,13 @@
+terraform {
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "Kevin_LUIT"
+    workspaces {
+      name = "learn-terraform-provision-eks-cluster-kc"
+    }
+  }
+}
+
 variable "region" {
   default     = "us-east-2"
   description = "AWS region"
@@ -14,7 +24,7 @@ locals {
 }
 
 resource "random_string" "suffix" {
-  length  = 8
+  length  = 5
   special = false
 }
 
